@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue';
-import SeeleImage from '@/assets/images/ssr/Seele.png';
-import BronyaImage from '@/assets/images/ssr/Bronya.png';
-import BatuImage from '@/assets/images/r/Batu.png';
-import TingyunImage from '@/assets/images/sr/Tingyun.png';
+import SeeleImage from '../assets/images/ssr/Seele.png';
+import BronyaImage from '../assets/images/ssr/Bronya.png';
+import BatuImage from '../assets/images/r/Batu.png';
+import TingyunImage from '../assets/images/sr/Tingyun.png';
 
 const SSR = [
   { name: 'Seele', image: SeeleImage },
