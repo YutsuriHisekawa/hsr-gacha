@@ -1,5 +1,5 @@
 <script setup>
-import gacha from './components/Gacha.vue';
+import gacha from './components/judi.vue';
 </script>
 
 <template>
