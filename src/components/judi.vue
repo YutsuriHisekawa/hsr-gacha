@@ -40,7 +40,7 @@ const SSR = [
   { name: 'Clara', image: ClaraImage },
   { name: 'Gepard', image: GepardImage },
   { name: 'Himeko', image: HimekoImage },
-  { name: 'Jing Yuan', image: JingYuanImage },
+  { name: 'JingYuan', image: JingYuanImage },
   { name: 'Kafka', image: KafkaImage },
   { name: 'Luocha', image: LuochaImage },
   { name: 'Welt', image: WeltImage },
