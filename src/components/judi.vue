@@ -1,13 +1,18 @@
 <script setup>
 import { ref } from 'vue';
+//SSR
 import SeeleImage from '../assets/images/ssr/Seele.png';
 import BronyaImage from '../assets/images/ssr/Bronya.png';
-import BatuImage from '../assets/images/r/Batu.png';
+import SilverImage from '../assets/images/ssr/Silverwolf.png';
+//SR
 import TingyunImage from '../assets/images/sr/Tingyun.png';
+//R
+import BatuImage from '../assets/images/r/Batu.png';
 
 const SSR = [
   { name: 'Seele', image: SeeleImage },
   { name: 'Bronya', image: BronyaImage },
+  { name: 'Silverwolf', image: SilverImage },
   // ... (complete all SSR characters)
 ];
 const R = [
@@ -22,7 +27,7 @@ const SR = [
 
 const rollOnce = () => {
   const random = Math.random() * 100;
-  if (random < 10) {
+  if (random < 5) {
     return SSR[Math.floor(Math.random() * SSR.length)];
   } else if (random < 22) {
     return SR[Math.floor(Math.random() * SR.length)];
@@ -51,7 +56,7 @@ const resetGacha = () => {
     <div class="flex justify-center mb-4">
       <button
         @click="rollGacha"
-        class="bg-blue-500 hover:bg-blue-600 dark:bg-gray-200 dark:hover:bg-slate-300 duration-300 rounded-xl text-black p-4 m-2 font-semibold">
+        class="bg-blue-500 hover:bg-blue-600 dark:bg-gray-200 dark:hover:bg-slate-300 duration-300 rounded-xl dark:text-black text-white p-4 m-2 font-semibold">
         Roll Gacha 1x
       </button>
       <button
@@ -67,16 +72,16 @@ const resetGacha = () => {
     </div>
     <div
       v-if="results.length"
-      class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+      class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 flex justify-center">
       <div
         v-for="(result, index) in results"
         :key="index"
-        class="col-span-1">
+        :class="results.length === 1 ? 'col-span-2 md:col-span-4' : 'col-span-1'">
         <img
           :src="result.image"
           :alt="result.name"
           class="mx-auto" />
-        <h2 class="text-center mt-2">{{ result.name }}</h2>
+        <h2 class="text-center mt-2 font-bold dark:text-white">{{ result.name }}</h2>
       </div>
     </div>
   </div>
