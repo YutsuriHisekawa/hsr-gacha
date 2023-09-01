@@ -1,10 +1,13 @@
 <script setup>
 import judi from './components/judi.vue';
+import bar from './components/bar.vue';
 </script>
 
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gray-100">
-    <div class="p-4 bg-white rounded shadow-lg max-w-lg w-full">
+  <bar />
+  <div class="min-h-screen w-full flex items-center justify-center bg-gray-100 dark:bg-gray-950">
+    <div
+      class="p-4 ml-5 mr-5 bg-white dark:bg-gray-600 rounded shadow-lg max-w-3xl w-full mt-5 mb-5">
       <judi></judi>
     </div>
   </div>
