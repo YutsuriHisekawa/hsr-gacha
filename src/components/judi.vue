@@ -66,40 +66,46 @@ const SR = [
 // Variabel untuk menentukan apakah popup harus ditampilkan
 const showSSRPopup = ref(false);
 const ssrResult = ref(null);
-
-const rollOnce = () => {
-  const random = Math.random() * 100;
-  let result;
-  if (random < 2) {
-    result = SSR[Math.floor(Math.random() * SSR.length)];
-    ssrResult.value = result; // simpan hasil SSR
-    showSSRPopup.value = true; // tampilkan popup
-  } else if (random < 20) {
-    result = SR[Math.floor(Math.random() * SR.length)];
-  } else {
-    result = R[Math.floor(Math.random() * R.length)];
-  }
-  return result;
-};
-
+const ssrCounter = ref(0);
 const loading = ref(false);
 const results = ref([]);
 
-const rollGacha = async () => {
-  loading.value = true;
-  results.value = [rollOnce()];
-  await new Promise((r) => setTimeout(r, 1000));
-  loading.value = false;
+const rollOnce = () => {
+  const random = Math.random() * 100; // ini akan memberi kita angka antara 0 dan 100
+  let result;
+
+  if (random < 0.8 || ssrCounter.value >= 80) {
+    // Cek apakah angka acak kurang dari 0.8 (0.80%)
+    result = SSR[Math.floor(Math.random() * SSR.length)];
+    ssrCounter.value = 0; // reset counter jika mendapatkan SSR
+    ssrResult.value = result;
+    showSSRPopup.value = true;
+  } else if (random < 20) {
+    // Anda mungkin perlu menyesuaikan angka ini tergantung pada rate lain yang Anda inginkan
+    result = SR[Math.floor(Math.random() * SR.length)];
+    ssrCounter.value++; // increment counter
+  } else {
+    result = R[Math.floor(Math.random() * R.length)];
+    ssrCounter.value++; // increment counter
+  }
+  return result;
 };
 
 const rollGacha10x = async () => {
   loading.value = true;
   let tempResults = Array.from({ length: 9 }, rollOnce);
   let hasSR = tempResults.some((result) => SR.includes(result));
-  if (!hasSR) tempResults.push(SR[Math.floor(Math.random() * SR.length)]);
+  if (!hasSR || ssrCounter.value >= 80) tempResults.push(SR[Math.floor(Math.random() * SR.length)]);
   else tempResults.push(rollOnce());
   results.value = tempResults;
   await new Promise((r) => setTimeout(r, 10000));
+  loading.value = false;
+};
+
+const rollGacha = async () => {
+  loading.value = true;
+  results.value = [rollOnce()];
+  await new Promise((r) => setTimeout(r, 1000));
   loading.value = false;
 };
 
