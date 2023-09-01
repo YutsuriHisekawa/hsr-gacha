@@ -4,6 +4,16 @@ import { ref } from 'vue';
 import SeeleImage from '../assets/images/ssr/Seele.png';
 import BronyaImage from '../assets/images/ssr/Bronya.png';
 import SilverImage from '../assets/images/ssr/Silverwolf.png';
+import BailuImage from '../assets/images/ssr/Bailu.png';
+import BladeImage from '../assets/images/ssr/Blade.webp';
+import ClaraImage from '../assets/images/ssr/Clara.png';
+import GepardImage from '../assets/images/ssr/Gepard.png';
+import HimekoImage from '../assets/images/ssr/Himeko.png';
+import JingYuanImage from '../assets/images/ssr/JingYuan.webp';
+import KafkaImage from '../assets/images/ssr/Kafka.png';
+import LuochaImage from '../assets/images/ssr/Luocha.png';
+import WeltImage from '../assets/images/ssr/Welt.png';
+import YanqingImage from '../assets/images/ssr/Yanqing.png';
 //SR
 import TingyunImage from '../assets/images/sr/Tingyun.png';
 import DanhengImage from '../assets/images/sr/Danheng.png';
@@ -25,6 +35,16 @@ const SSR = [
   { name: 'Seele', image: SeeleImage },
   { name: 'Bronya', image: BronyaImage },
   { name: 'Silverwolf', image: SilverImage },
+  { name: 'Bailu', image: BailuImage },
+  { name: 'Blade', image: BladeImage },
+  { name: 'Clara', image: ClaraImage },
+  { name: 'Gepard', image: GepardImage },
+  { name: 'Himeko', image: HimekoImage },
+  { name: 'Jing Yuan', image: JingYuanImage },
+  { name: 'Kafka', image: KafkaImage },
+  { name: 'Luocha', image: LuochaImage },
+  { name: 'Welt', image: WeltImage },
+  { name: 'Yanqing', image: YanqingImage },
 ];
 const R = [{ name: 'Batu', image: BatuImage }];
 const SR = [
